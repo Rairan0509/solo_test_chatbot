@@ -17,4 +17,3 @@ response=client.messages.create(
 
 texts = [block.text for block in response.content if block.type == "text"]
 answer = "\n".join(texts)
-print(answer)
