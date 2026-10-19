@@ -1,3 +1,4 @@
 .env
 .cleancode/
 __pycache__/
+.solo_test_chatbot/
