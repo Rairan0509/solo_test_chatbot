@@ -1,6 +1,5 @@
 import pdfplumber
 import logging
-import re
 from pathlib import Path
 import json
 
@@ -81,16 +80,3 @@ result = {
 
 with open(output_path, "w", encoding="utf-8") as f:
     json.dump(result, f, ensure_ascii=False, indent=2)
-
-with open(output_path, "r", encoding="utf-8") as f:
-    json.load(f)
-    loaded= result
-    print(len(loaded["tables"]))
-    print(len(loaded["texts"]))
-    print(len(loaded["documents"]))
-
-for doc in loaded["documents"]:
-    doc_name = doc["doc"]
-    table_count = len([t for t in loaded["tables"] if t["doc"] == doc_name])
-    text_count = len([i for i in loaded["texts"] if i["doc"] == doc_name])
-    print(f"{doc_name}: 표 {table_count}개, 텍스트 {text_count}")
